@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Smart Life Saver (Jeev Rakshak)</title>
+<style>
+  /* CSS goes here */
+  body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-color: #f4f4f4;
+  }
+  .container {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: auto;
+  }
+  label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+  }
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  textarea {
+    width: calc(100% - 22px);
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+  input[type="file"] {
+    margin-bottom: 20px;
+  }
+  .required:after {
+    content: " *";
+    color: red;
+  }
+  button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+  }
+  button:hover {
+    background-color: #45a049;
+  }
+  .qr-code-placeholder {
+    text-align: center;
+    margin-top: 30px;
+    padding: 20px;
+    border: 1px dashed #ccc;
+    background-color: #f9f9f9;
+  }
+  #qrcode {
+    margin-top: 20px;
+    display: inline-block; /* To center the QR code if it's smaller than the div */
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Smart Life Saver (Jeev Rakshak)</h1>
+  <p>* Indicates required question</p>
+
+  <form id="lifeSaverForm">
+    <label for="email" class="required">1. Email</label>
+    <input type="email" id="email" name="Email" required>
+
+    <label for="yourName" class="required">2. तुमचे नाव</label>
+    <input type="text" id="yourName" name="तुमचे नाव" required>
+
+    <label for="mobileNumber" class="required">3. तुमचा मोबाईल नंबर</label>
+    <input type="tel" id="mobileNumber" name="तुमचा मोबाईल नंबर" required>
+
+    <label for="fatherHusbandSonGrandsonName" class="required">4. तुमच्या वडिलांचे. पतीचे किंवा तुमच्या मुलाचे अथवा जावयाचे नाव</label>
+    <input type="text" id="fatherHusbandSonGrandsonName" name="वडिलांचे/पतीचे/मुलाचे/जावयाचे नाव" required>
+
+    <label for="fatherHusbandSonGrandsonMobile" class="required">5. तुमच्या वडिलांचा पतीचा किंवा तुमच्या मुलाचा अथवा जावयाचा मोबाईल नंबर</label>
+    <input type="tel" id="fatherHusbandSonGrandsonMobile" name="वडिलांचा/पतीचा/मुलाचा/जावयाचा मोबाईल नंबर" required>
+
+    <label for="motherWifeDaughterDaughterInLawName" class="required">6. तुमच्या आईचे. पत्नीचे किंवा मुलीचे अथवा सुनेचे नाव</label>
+    <input type="text" id="motherWifeDaughterDaughterInLawName" name="आईचे/पत्नीचे/मुलीचे/सुनेचे नाव" required>
+
+    <label for="motherWifeDaughterDaughterInLawMobile" class="required">7. तुमच्या आईचा पत्नीचा किंवा मुलीचा अथवा सुनेचा मोबाईल नंबर</label>
+    <input type="tel" id="motherWifeDaughterDaughterInLawMobile" name="आईचा/पत्नीचा/मुलीचा/सुनेचा मोबाईल नंबर" required>
+
+    <label for="otherRelativeFriendName">8. तुमच्या इतर नातेवाईकाचे किंवा मित्र / मैत्रिणी चे नाव</label>
+    <input type="text" id="otherRelativeFriendName" name="इतर नातेवाईक/मित्र/मैत्रिणीचे नाव">
+
+    <label for="otherRelativeFriendMobile">9. तुमच्या इतर नातेवाईकाचा किंवा मित्र / मैत्रिणींचा मोबाईल नंबर</label>
+    <input type="tel" id="otherRelativeFriendMobile" name="इतर नातेवाईक/मित्र/मैत्रिणींचा मोबाईल नंबर">
+
+    <label for="brotherSisterMobile">10. तुमच्या भावाचा किंवा बहिणीचा मोबाईल नंबर</label>
+    <input type="tel" id="brotherSisterMobile" name="भावाचा/बहिणीचा मोबाईल नंबर">
+
+    <label for="brotherSisterName">11. तुमच्या भावाचे किंवा बहिणीचे नाव</label>
+    <input type="text" id="brotherSisterName" name="भावाचे/बहिणीचे नाव">
+
+    <label for="medicalReport" class="required">12. तुमचे वैदकीय report</label>
+    <input type="file" id="medicalReport" name="वैदकीय report" accept=".pdf, .doc, .docx, .jpg, .png" required>
+
+    <label for="address" class="required">13. तुमचा पत्ता</label>
+    <textarea id="address" name="तुमचा पत्ता" rows="4" required></textarea>
+
+    <button type="submit">माहिती सबमिट करा आणि QR कोड मिळवा</button>
+  </form>
+
+  <div class="qr-code-placeholder">
+    <p>QR कोड इथे दिसेल.</p>
+    <div id="qrcode"></div>
+  </div>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script>
+  // JavaScript goes here
+  document.getElementById('lifeSaverForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent default form submission
+
+    const formData = new FormData(this);
+    let dataForQr = {};
+
+    // Collect data from all text/email/tel/textarea fields
+    for (const [key, value] of formData.entries()) {
+        if (key !== 'वैदकीय report') { // Exclude file input from direct QR code string
+            dataForQr[key] = value;
+        }
+    }
+
+    // Convert the collected data to a JSON string
+    // You can also format it as a plain text string if preferred, e.g., "Field Name: Value\n"
+    const dataString = JSON.stringify(dataForQr, null, 2); // Pretty-print JSON
+
+    // Clear previous QR code if any
+    document.getElementById('qrcode').innerHTML = '';
+
+    // Generate QR code
+    new QRCode(document.getElementById("qrcode"), {
+      text: dataString,
+      width: 256,
+      height: 256,
+      colorDark : "#000000",
+      colorLight : "#ffffff",
+      correctLevel : QRCode.CorrectLevel.H
+    });
+
+    alert("फॉर्म सबमिट झाला आहे! QR कोड तयार झाला आहे.");
+  });
+</script>
+
+</body>
+</html>
